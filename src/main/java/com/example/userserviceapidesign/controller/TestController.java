@@ -16,4 +16,9 @@ public class TestController {
         return "User";
 
     }
+    @GetMapping("/admin")
+    public String getAdmin() {
+        return "Admin";
+
+    }
 }
