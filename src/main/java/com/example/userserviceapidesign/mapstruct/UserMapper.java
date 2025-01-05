@@ -1,7 +1,7 @@
 package com.example.userserviceapidesign.mapstruct;
 
 import com.example.userserviceapidesign.models.dto.UserDTO;
-import com.example.userserviceapidesign.models.entity.User;
+import com.example.userserviceapidesign.models.entity.user.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;

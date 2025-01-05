@@ -13,8 +13,10 @@ public class EmailOrNumberValidator implements ConstraintValidator<EmailOrNumber
 
     @Override
     public boolean isValid(UserDTO userDTO, ConstraintValidatorContext context) {
-        if ((userDTO.getEmail() == null || userDTO.getEmail().isEmpty()) &&
-                (userDTO.getNumber() == null || userDTO.getNumber().isEmpty())) {
+        if ((userDTO.getUsername() == null || userDTO.getUsername().isEmpty()) )
+                //&&
+//                (userDTO.getNumber() == null || userDTO.getNumber().isEmpty()))
+{
             context.disableDefaultConstraintViolation();
             context.buildConstraintViolationWithTemplate("Either email or number must be provided")
                     .addConstraintViolation();
