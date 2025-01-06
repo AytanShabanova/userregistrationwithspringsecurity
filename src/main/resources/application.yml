@@ -13,3 +13,5 @@ spring:
 
   liquibase:
     enabled: false
+  security :
+    jwt-secret-key : bXkgc2VjcmV0IGtleSBmb3IgdXNlciByZWdpc3RyYXRpb24gd2l0aCBzZWN1cml0eQ==

@@ -22,7 +22,6 @@ import static com.example.userserviceapidesign.models.enums.Role.USER;
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
 
     @Override
