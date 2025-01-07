@@ -30,7 +30,7 @@ public final class BaseJwtService {
         key= Keys.hmacShaKeyFor(keyBytes);
     }
     public Jws<Claims> parse(String token) {
-        return Jwts.parser().decryptWith( key).build().parseSignedClaims(token);
+        return Jwts.parser().decryptWith( key).build().parseClaimsJws(token);
 
     }
 
