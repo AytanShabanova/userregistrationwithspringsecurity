@@ -1,10 +1,13 @@
 package com.example.userserviceapidesign.config.security;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -42,8 +45,11 @@ public class JwtAuthService implements AuthService {
                 .stream()
                 .map(role->new SimpleGrantedAuthority(role))
                 .collect(Collectors.toList());
-        var details=new CustomSpringSecurityUser(claims.getSubject(), "",
-        authorityList,claims.get("id",Long.class));
-return new UsernamePasswordAuthenticationToken(null,details,authorityList);
+//        var details=new CustomSpringSecurityUser(claims.getSubject(), "",
+//        authorityList,claims.get("id",Long.class));
+
+        JwtCredentials jwtCredentials=new ModelMapper().map(claims, JwtCredentials.class);
+
+return new UsernamePasswordAuthenticationToken(null,jwtCredentials,authorityList);
     }
 }
